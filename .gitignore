@@ -1,4 +1,3 @@
 scratch/
-graph_nueral_networks/__pycache__
-graph_neural_networks.egg-info
+graph_neural_networks/__pycache__/
 .DS_Store

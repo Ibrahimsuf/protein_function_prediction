@@ -31,7 +31,7 @@ def split_dataset(dataset: Dataset, train_size: Optional[float] = 0.8, val_size:
 
   return DataLoader(train_dataset), DataLoader(val_dataset), DataLoader(test_dataset)
 
-def train(model: torch.nn.Module, train_loader: DataLoader, epochs: Optional[int] = 200, verbose: Optional[bool] = True) -> None:
+def train(model: torch.nn.Module, train_loader: DataLoader, epochs: Optional[int] = 200, learning_rate: Optional[float] = 0.01, verbose: Optional[bool] = True) -> None:
   """
   Train a model using the given data loader.
 
@@ -40,7 +40,7 @@ def train(model: torch.nn.Module, train_loader: DataLoader, epochs: Optional[int
     train_loader (torch_geometric.data.DataLoader): The data loader to use.
     epochs (int): The number of epochs to train for.
   """
-  optimizer = torch.optim.Adam(model.parameters(), lr=4e-3)
+  optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
   model.train()
   loss_fn = torch.nn.BCEWithLogitsLoss()
   for epoch in range(epochs):
